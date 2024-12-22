@@ -13,6 +13,12 @@
     "qa": "tsc && pnpm prettier-ci && pnpm build && pnpm test",
     "release": "pnpm build && tnode scripts/release.ts"
   },
+  "files": [
+    "index.mjs",
+    "index.cjs",
+    "index.d.ts",
+    "refresh-runtime.js"
+  ],
   "packageManager": "pnpm@9.11.0",
   "dependencies": {
     "@swc/core": "^1.7.26"
