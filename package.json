@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "prepare": "pnpm build",
+    "prepare": "pnpm build && node scripts/move-dist-to-root.js",
     "dev": "tnode scripts/bundle.ts --dev",
     "build": "tnode scripts/bundle.ts",
     "test": "playwright test",
@@ -13,10 +13,6 @@
     "qa": "tsc && pnpm prettier-ci && pnpm build && pnpm test",
     "release": "pnpm build && tnode scripts/release.ts"
   },
-  "files": [
-    "dist",
-    "src"
-  ],
   "packageManager": "pnpm@9.11.0",
   "dependencies": {
     "@swc/core": "^1.7.26"
