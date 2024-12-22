@@ -75,6 +75,12 @@ module.exports.default = react;`,
         main: "index.cjs",
         types: "index.d.ts",
         module: "index.mjs",
+        files: [
+          "index.mjs",
+          "index.cjs",
+          "index.d.ts",
+          "refresh-runtime.js"
+        ],
         exports: {
           ".": {
             types: "./index.d.ts",
