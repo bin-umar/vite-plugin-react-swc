@@ -1,10 +1,10 @@
-const fs = require('fs-extra');
-const path = require('path');
+import { promises as fs } from 'fs';
+import path from 'path';
 
 const distDir = path.resolve(__dirname, '../dist');
 const rootDir = path.resolve(__dirname, '..');
 
-async function moveDistToRoot() {
+async function moveDistToRoot(): Promise<void> {
     try {
         const files = await fs.readdir(distDir);
 
@@ -12,11 +12,12 @@ async function moveDistToRoot() {
             const srcPath = path.join(distDir, file);
             const destPath = path.join(rootDir, file);
 
-            await fs.move(srcPath, destPath, { overwrite: true });
+            // Move files or directories
+            await fs.rename(srcPath, destPath);
         }
 
         // Remove the now-empty `dist` directory
-        await fs.remove(distDir);
+        await fs.rmdir(distDir, { recursive: true });
 
         console.log('Moved all files from "dist" to the root directory successfully.');
     } catch (error) {
@@ -25,4 +26,5 @@ async function moveDistToRoot() {
     }
 }
 
+// Execute the function
 moveDistToRoot();
