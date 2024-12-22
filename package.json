@@ -16,7 +16,7 @@
   "files": {
     "dist",
     "src"
-  }
+  },
   "packageManager": "pnpm@9.11.0",
   "dependencies": {
     "@swc/core": "^1.7.26"
