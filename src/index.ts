@@ -248,6 +248,7 @@ const transformWithOptions = async (
         parser,
         experimental: { plugins: options.plugins },
         transform: {
+          decoratorMetadata: true,
           useDefineForClassFields: true,
           react: reactConfig,
         },
